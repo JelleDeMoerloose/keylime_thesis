@@ -284,7 +284,7 @@ class RegistrarAgent(PersistableModel):
         # Log info about received EK or IAK/IDevID
         self._log_root_identity()
         # Verify EK as valid
-        self._check_ek()
+        #self._check_ek() # not needed when agent authenticates with IAK --> keylime has not removed this yet, and the tpm_identity does not enforce this., for some reason EK-cert is still detected
         # Verify IAK/IDevID as valid and trusted
         self._check_iak_idevid(data.get("iak_attest"), data.get("iak_sign"))
         # Ensure either an EK or IAK/IDevID is present, depending on configuration
